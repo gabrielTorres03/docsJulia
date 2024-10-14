@@ -7,7 +7,7 @@ Este repositorio contiene una guía completa sobre el lenguaje de programación 
 1. [Instalación](Instalacion/Instalacion.md)
 2. [Sintaxis Básica y Tipos de Datos](SintaxisBasica/SintaxisBasica.md)
 3. [Operadores y Estructuras de Control](OperadoresControl/OperadoresControl.md)
-4. [Funciones y Métodos](FuncionesMetodos/FuncionesMetodos.md)
+4. [Funciones y Métodos](Funciones/funciones.md)
 5. [Programación Modular y Módulos](Modularidad/Modularidad.md)
 
 ## Descripción

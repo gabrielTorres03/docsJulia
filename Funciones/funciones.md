@@ -4,10 +4,11 @@ Definición de Funciones
 Las funciones en Julia se definen usando la palabra clave function, y puedes retornar valores usando return.
 
 # Función detallada
+```Julia
 function saludo(nombre)
     return "¡Hola, $nombre!"
 end
-
+```
 println(saludo("Julia"))
 
 # Función de una línea

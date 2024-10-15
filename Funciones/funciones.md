@@ -14,9 +14,9 @@ Esta función acepta dos argumentos xy y devuelve el valor de la última expresi
 function saludo(nombre)
     return "¡Hola, $nombre!"
 end
-```
-println(saludo("Julia"))
 
+println(saludo("Julia"))
+```
 Existe una segunda sintaxis más concisa para definir una función en Julia. La sintaxis de declaración de 
 función tradicional que se muestra arriba es equivalente a la siguiente "forma de asignación" compacta:
 ```Julia
@@ -69,7 +69,7 @@ julia> a = [4, 5, 6]
 
 julia> b = 3
 3
-```
+
 
 julia> f(a, b) # returns 7 + b == 10
 10
@@ -93,7 +93,7 @@ Puede declarar los tipos de argumentos de una función agregando ::TypeName al n
 ```Julia
 fib(n::Integer) = n ≤ 2 ? one(n) : fib(n-1) + fib(n-2)
 ```
-Y la ::Integer especificación significa que solo será invocable cuando n sea un subtipo del tipo abstracto Integer.
+::Integer significa que solo será invocable cuando n sea un subtipo del tipo abstracto Integer.
 
 ## Return - palabra clave
 El valor devuelto por una función es el valor de la última expresión evaluada, que, por defecto, es la última expresión en el cuerpo de la definición de la función. En la función de ejemplo, f, de la sección anterior, este es el valor de la expresión x + y. Como alternativa, como en muchos otros lenguajes, return hace que una función retorne inmediatamente, proporcionando una expresión cuyo valor se devuelve:

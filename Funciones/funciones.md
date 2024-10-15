@@ -91,3 +91,42 @@ function g(x, y)
     x + y
 end
 ```
+Dado que las definiciones de funciones se pueden introducir en sesiones interactivas, es fácil comparar estas definiciones:
+```Julia
+julia> f(x, y) = x + y
+f (generic function with 1 method)
+
+julia> function g(x, y)
+           return x * y
+           x + y
+       end
+g (generic function with 1 method)
+
+julia> f(2, 3)
+5
+
+julia> g(2, 3)
+6
+```
+Por supuesto, en un cuerpo de función puramente lineal como g, el uso de returnno tiene sentido ya que la expresión x + ynunca se evalúa y podríamos simplemente hacer x * yla última expresión en la función y omitir el return. Sin embargo, junto con otro flujo de control, returnes de verdadera utilidad. Aquí, por ejemplo, hay una función que calcula la longitud de la hipotenusa de un triángulo rectángulo con lados de longitud xy y, evitando el desbordamiento:
+```Julia
+julia> function hypot(x, y)
+           x = abs(x)
+           y = abs(y)
+           if x > y
+               r = y/x
+               return x*sqrt(1 + r*r)
+           end
+           if y == 0
+               return zero(x)
+           end
+           r = x/y
+           return y*sqrt(1 + r*r)
+       end
+hypot (generic function with 1 method)
+
+julia> hypot(3, 4)
+5.0
+```
+Hay tres posibles puntos de retorno de esta función, que retorna los valores de tres expresiones diferentes, según los valores de xy y. El returnde la última línea se puede omitir ya que es la última expresión.
+

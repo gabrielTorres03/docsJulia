@@ -5,7 +5,7 @@ En Julia, una función es un objeto que asigna una tupla de valores de argumento
 julia> function f(x, y)
            x + y
        end
-f (generic function with 1 method)
+f 
 ```
 Esta función acepta dos argumentos xy y devuelve el valor de la última expresión evaluada, que es x + y.
 
@@ -21,7 +21,7 @@ Existe una segunda sintaxis más concisa para definir una función en Julia. La 
 función tradicional que se muestra arriba es equivalente a la siguiente "forma de asignación" compacta:
 ```Julia
 julia> f(x, y) = x + y
-f (generic function with 1 method)
+f 
 ```
 
 En la forma de asignación, el cuerpo de la función debe ser una expresión única, aunque puede ser una expresión compuesta (consulte Expresiones compuestas). Las definiciones de funciones breves y simples son comunes en Julia. La sintaxis de función breve es, por lo tanto, bastante idiomática, lo que reduce considerablemente tanto el ruido de escritura como el visual.
@@ -43,7 +43,7 @@ julia> g(2, 3)
 Al igual que con las variables, Unicode también se puede utilizar para nombres de funciones:
 ```Julia
 julia> ∑(x, y) = x + y
-∑ (generic function with 1 method)
+
 
 julia> ∑(2, 3)
 5
@@ -54,8 +54,8 @@ julia> ∑(2, 3)
 Los argumentos de las funciones de Julia siguen una convención que a veces se denomina "pass-by-sharing", lo que significa que los valores no se copian cuando se pasan a las funciones. Los argumentos de las funciones actúan como nuevos enlaces de variables (nuevos "nombres" que pueden hacer referencia a valores), de forma muy similar a las asignaciones argument_name = argument_value, de modo que los objetos a los que hacen referencia son idénticos a los valores pasados. Las modificaciones a los valores mutables (como Arrays) realizadas dentro de una función serán visibles para el llamador. (Este es el mismo comportamiento que se encuentra en Scheme, la mayoría de los lenguajes Lisp, Python, Ruby y Perl, entre otros lenguajes dinámicos)
 ```Julia
 function f(x, y)
-    x[1] = 42    # mutates x
-    y = 7 + y    # new binding for y, no mutation
+    x[1] = 42    
+    y = 7 + y    
     return y
 end
 ```
@@ -106,13 +106,13 @@ end
 Dado que las definiciones de funciones se pueden introducir en sesiones interactivas, es fácil comparar estas definiciones:
 ```Julia
 julia> f(x, y) = x + y
-f (generic function with 1 method)
+f 
 
 julia> function g(x, y)
            return x * y
            x + y
        end
-g (generic function with 1 method)
+g 
 
 julia> f(2, 3)
 5
@@ -136,7 +136,7 @@ julia> function hypot(x, y)
            r = x/y
            return y*sqrt(1 + r*r)
        end
-hypot (generic function with 1 method)
+hypot 
 
 julia> hypot(3, 4)
 5.0

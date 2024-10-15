@@ -8,7 +8,7 @@ Este repositorio contiene una guía completa sobre el lenguaje de programación 
 2. [Sintaxis Básica, Tipos de Datos y Operadores](sintaxisBasica/sintaxisBasica.md)
 4. [Funciones y Métodos](Funciones/funciones.md)
 5. [Programación Modular y Módulos](ProgramacionModular/programacionModular.md)
-6. [Ejemplos Practicos](EjemplosPracticos/estructuraLibro.md)
+
 
 ## Descripción
 

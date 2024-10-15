@@ -1,31 +1,38 @@
-En Julia, puedes crear funciones para organizar y reutilizar código. Las funciones se pueden definir de manera detallada o en una sola línea.
+En Julia, una función es un objeto que asigna una tupla de valores de argumentos a un valor de retorno. Las funciones de Julia no son funciones matemáticas puras, ya que pueden modificarse y verse afectadas por el estado global del programa. La sintaxis básica para definir funciones en Julia es:
+```Julia
+julia> function f(x, y)
+           x + y
+       end
+f (generic function with 1 method)
+```
+Esta función acepta dos argumentos xy ydevuelve el valor de la última expresión evaluada, que es x + y.
 
-Definición de Funciones
-Las funciones en Julia se definen usando la palabra clave function, y puedes retornar valores usando return.
+Existe una segunda sintaxis más concisa para definir una función en Julia. La sintaxis de declaración de 
+función tradicional que se muestra arriba es equivalente a la siguiente "forma de asignación" compacta:
+```Julia
+julia> f(x, y) = x + y
+f (generic function with 1 method)
+```
 
-# Función detallada
-function saludo(nombre)
-    return "¡Hola, $nombre!"
-end
+En la forma de asignación, el cuerpo de la función debe ser una expresión única, aunque puede ser una expresión compuesta (consulte Expresiones compuestas ). Las definiciones de funciones breves y simples son comunes en Julia. La sintaxis de función breve es, por lo tanto, bastante idiomática, lo que reduce considerablemente tanto el ruido de escritura como el visual.
 
-println(saludo("Julia"))
+Una función se llama utilizando la sintaxis de paréntesis tradicional:
+```Julia
+julia> f(2, 3)
+5
+```
+Sin paréntesis, la expresión f se refiere al objeto de función y puede pasarse como cualquier otro valor:
+```Julia
+julia> g = f;
 
-# Función de una línea
-cuadrado(x) = x^2
-println(cuadrado(4))
+julia> g(2, 3)
+5
+```
+Al igual que con las variables, Unicode también se puede utilizar para nombres de funciones:
+```Julia
+julia> ∑(x, y) = x + y
+∑ (generic function with 1 method)
 
-Métodos y Sobrecarga
-Julia permite la sobrecarga de funciones, es decir, puedes definir múltiples versiones de una función con el mismo nombre pero diferentes parámetros.
-
-# Sobrecarga de función
-function area(radio::Float64)
-    return pi * radio^2
-end
-
-function area(largo::Float64, ancho::Float64)
-    return largo * ancho
-end
-
-println(area(5.0))  # Círculo
-println(area(5.0, 3.0))  # Rectángulo
-
+julia> ∑(2, 3)
+5
+```
